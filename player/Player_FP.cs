@@ -52,7 +52,6 @@ public class Player_FP : MonoBehaviour
         controls.Player.Look.started += ctx => FindObjectOfType<FirstPersonCamera>().Look(ctx.ReadValue<Vector2>());
 
         controls.Player.Zoom.performed += ctx => FindObjectOfType<FirstPersonCamera>().ZoomCam(ctx.ReadValue<Vector2>());
-        //controls.Player.Zoom.performed += ctx => FindObjectOfType<FirstPersonCamera>().ZoomCam(ctx.ReadValue<Vector2>());
 
         controls.Player.Action.performed += _ => Interact();
         controls.Player.Action.canceled += _ => isInteracting = false;
@@ -60,7 +59,7 @@ public class Player_FP : MonoBehaviour
         controls.Player.Move.performed += _ => isMoving = true; 
         controls.Player.Move.canceled += _ => isMoving = false;
 
-        controls.Player.Jump.performed += _ => Jump(); // sJumping = true; // Jump(); // 
+        controls.Player.Jump.performed += _ => Jump();
         controls.Player.Jump.canceled += _ => isJumping = false;
 
         origin = transform.position;
